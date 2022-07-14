@@ -1,7 +1,7 @@
 package org.rossedth.fsm;
 import org.jeasy.states.api.AbstractEvent;
 
-class CEvent extends AbstractEvent {
+public class CEvent extends AbstractEvent {
 
     public CEvent() {
         super("CEvent");
