@@ -224,11 +224,16 @@ public class RecognizerFSM {
 		gv.addln(gv.end_graph());
 
 		//Print out Digraph
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter("FSM.dot"))) {
+		FileWriter dotFile;
+		try {
+			dotFile = new FileWriter("FSM.dot");
+			BufferedWriter writer = new BufferedWriter(dotFile);
 			writer.write(gv.getDotSource());
 			writer.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+			gv.saveToPNG();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		gv.setNewGraph();
 

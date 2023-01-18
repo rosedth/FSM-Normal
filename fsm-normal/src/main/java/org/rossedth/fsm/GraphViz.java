@@ -183,6 +183,29 @@ public class GraphViz
 		return img_stream;
 	}
 
+	
+	public void saveToPNG()
+	{
+//		File img;
+
+			//img = File.createTempFile("graph_", ".gif", null);
+//            System.out.println("Temp File created: "+ img.getName());
+//
+//
+		try {
+			Runtime rt = Runtime.getRuntime();
+			String cmd = DOT + " -Tpng FSM.dot -o FSM.png";
+			Process p = rt.exec(cmd);
+
+				p.waitFor();
+			} catch (InterruptedException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+
+	}
+	
 	/**
 	 * Writes the source of the graph in a file, and returns the written file
 	 * as a File object.
