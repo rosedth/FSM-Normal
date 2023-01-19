@@ -118,6 +118,7 @@ public class GraphViz
 		} catch (java.io.IOException ioe) { return null; }
 	}
 
+
 	/**
 	 * Writes the graph's image in a file.
 	 * @param img   A byte array containing the image of the graph.
@@ -129,7 +130,7 @@ public class GraphViz
 		File to = new File(file);
 		return writeGraphToFile(img, to);
 	}
-
+	
 	/**
 	 * Writes the graph's image in a file.
 	 * @param img   A byte array containing the image of the graph.
@@ -192,12 +193,6 @@ public class GraphViz
 	
 	public void saveToPNG()
 	{
-//		File img;
-
-			//img = File.createTempFile("graph_", ".gif", null);
-//            System.out.println("Temp File created: "+ img.getName());
-//
-//
 		try {
 			Runtime rt = Runtime.getRuntime();
 			String cmd = DOT + " -Tpng FSM.dot -o FSM.png";
@@ -208,8 +203,6 @@ public class GraphViz
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-
 	}
 	
 	/**
@@ -249,21 +242,7 @@ public class GraphViz
 	public String end_graph() {
 		return "}";
 	}
-	
-//	public void setup_graph() throws IOException{
-//		ClassLoader loader=this.getClass().getClassLoader();
-//		URL url = loader.getResource("GraphViz.config");
-//		Path path=null;
-//		try {
-//			path = Paths.get(url.toURI());
-//		} catch (URISyntaxException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		configs=Files.readString(path);
-//		graph.append(configs);
-//	}
-	
+		
 	public void setup_graph() throws IOException{
 		ClassLoader loader=this.getClass().getClassLoader();
 		InputStream is = loader.getResourceAsStream("GraphViz.config");

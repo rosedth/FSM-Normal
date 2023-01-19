@@ -34,11 +34,8 @@ class App {
 	
 		GraphViz gv = new GraphViz();
 		gv.addln(gv.start_graph());
-		//URL configFile=App.class.getClassLoader().getResource("src/main/resources/GraphViz.config");
-		//ClassLoader loader=App.class.getClassLoader();
-		//URL configFile=loader.getResource("GraphViz.config");
 		gv.setup_graph();
-		//gv.setup_graph(configFile.toString());
+
 		
 		/*
 		 * Fire some events and print FSM state
