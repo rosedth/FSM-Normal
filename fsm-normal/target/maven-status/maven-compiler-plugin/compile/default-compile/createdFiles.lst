@@ -1,0 +1,7 @@
+org\rossedth\fsm\GraphViz.class
+org\rossedth\fsm\App.class
+org\rossedth\fsm\BEvent.class
+org\rossedth\fsm\AEvent.class
+org\rossedth\fsm\RecognizerFSM.class
+org\rossedth\fsm\CEvent.class
+org\rossedth\fsm\Recognized.class

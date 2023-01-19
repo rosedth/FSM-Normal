@@ -1,6 +1,7 @@
 package org.rossedth.fsm;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Scanner;
 import org.jeasy.states.api.FiniteStateMachineException;
 
@@ -16,7 +17,7 @@ import org.jeasy.states.api.FiniteStateMachineException;
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
-class Launcher {
+class App {
 
 	public static void main(String[] args) throws FiniteStateMachineException, IOException {
 
@@ -33,8 +34,11 @@ class Launcher {
 	
 		GraphViz gv = new GraphViz();
 		gv.addln(gv.start_graph());
-		gv.setup_graph("GraphViz.config");
-
+		//URL configFile=App.class.getClassLoader().getResource("src/main/resources/GraphViz.config");
+		//ClassLoader loader=App.class.getClassLoader();
+		//URL configFile=loader.getResource("GraphViz.config");
+		gv.setup_graph();
+		//gv.setup_graph(configFile.toString());
 		
 		/*
 		 * Fire some events and print FSM state

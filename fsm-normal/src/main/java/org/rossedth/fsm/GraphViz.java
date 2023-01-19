@@ -1,13 +1,19 @@
 package org.rossedth.fsm;
 
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * <dl>
@@ -46,7 +52,7 @@ public class GraphViz
 	 * Where is your dot program located? It will be called externally.
 	 */
 	private static String DOT        = "dot";
-	private String configs;
+	private String configs="";
 
 	/**
 	 * The source of the graph written in dot language.
@@ -244,8 +250,34 @@ public class GraphViz
 		return "}";
 	}
 	
-	public void setup_graph(String path) throws IOException{
-		configs=Files.readString(Path.of(path));
+//	public void setup_graph() throws IOException{
+//		ClassLoader loader=this.getClass().getClassLoader();
+//		URL url = loader.getResource("GraphViz.config");
+//		Path path=null;
+//		try {
+//			path = Paths.get(url.toURI());
+//		} catch (URISyntaxException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		configs=Files.readString(path);
+//		graph.append(configs);
+//	}
+	
+	public void setup_graph() throws IOException{
+		ClassLoader loader=this.getClass().getClassLoader();
+		InputStream is = loader.getResourceAsStream("GraphViz.config");
+		InputStreamReader isr= new InputStreamReader(is); 
+		BufferedReader br = new BufferedReader(isr);
+		String line = br.readLine();
+
+		while (line != null) {
+			configs=configs+line;
+			// read next line
+			line = br.readLine();
+		}
+
+		br.close();
 		graph.append(configs);
 	}
 	public String getConfigurations() {
